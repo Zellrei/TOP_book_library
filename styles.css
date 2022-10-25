@@ -1,0 +1,24 @@
+ul {
+  list-style-type: none;
+  display: block;
+}
+
+li {
+  list-style-type: none;
+  display: inline;
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+label {
+  display: inline;
+}
+
+input {
+  margin: 10px;
+}
+
+library-wrapper {
+  display: flex;
+  justify-content: center;
+}
