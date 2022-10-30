@@ -10,6 +10,10 @@ function Book(title, author, pages, read) {
   }
 }
 
+const submitBtn = document.getElementById('submitBtn');
+submitBtn.addEventListener('click', addBookToLibrary());
+
+
 function addBookToLibrary() {
   // do stuff here
 }

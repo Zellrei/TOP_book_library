@@ -22,3 +22,14 @@ library-wrapper {
   display: flex;
   justify-content: center;
 }
+
+.flex-top-ctnr {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-main-ctnr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
