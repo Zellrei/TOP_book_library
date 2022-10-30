@@ -1,13 +1,18 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 ul {
   list-style-type: none;
   display: block;
+  padding: 0;
 }
 
 li {
   list-style-type: none;
   display: inline;
-  margin-right: 20px;
-  margin-left: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
 label {
@@ -15,7 +20,7 @@ label {
 }
 
 input {
-  margin: 10px;
+  margin: 5px;
 }
 
 library-wrapper {
@@ -32,4 +37,16 @@ library-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.grid-ctnr {
+  display: grid;
+  grid-template-columns: 100px 100px 100px 100px;
+  grid-auto-flow: row;
+  justify-content: space-evenly;
+}
+
+.header-line {
+  font-size: 1.5rem;
+  font-weight: bold;
 }

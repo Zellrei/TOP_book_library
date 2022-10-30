@@ -1,49 +1,50 @@
 let myLibrary = [];
+let libIndex = 0;
 
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
-  this.info = function () {
-    return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
-  }
 }
 
-const submitBtn = document.getElementById('submitBtn');
-submitBtn.addEventListener('click', addBookToLibrary());
+const newBookBtn = document.getElementById('new-book-btn');
 
+newBookBtn.addEventListener('click', () => addBookToLibrary());
 
 function addBookToLibrary() {
-  // do stuff here
+  const formBookTitle = document.getElementById('Book title');
+  const formAuthor = document.getElementById('Author');
+  const formPages = document.getElementById('Pages');
+  const formRead = document.getElementById('Read');
+
+  const bookToAdd = new Book(formBookTitle.value, formAuthor.value, formPages.value, formRead.value);
+  myLibrary.push(bookToAdd);
+  console.table(myLibrary);
+
+  libIndex += 1;
+  return myLibrary;
 }
 
-function displayBooks (arr) {
-  for (const key in object) {
-    if (Object.hasOwnProperty.call(object, key)) {
-      const element = object[key];
-    }
+function displayLibrary() {
+  const gridContainer = document.getElementById('grid-cont-id');
+
+  for (const books of myLibrary) {
+    const title = document.createElement('span');
+    title.textContent = books.title;
+    gridContainer.appendChild(title);
+
+    const author = document.createElement('span');
+    author.textContent = books.author;
+    gridContainer.appendChild(author);
+
+    const pages = document.createElement('span');
+    pages.textContent = books.pages;
+    gridContainer.appendChild(pages);
+
+    const read = document.createElement('span');
+    read.textContent = books.read;
+    gridContainer.appendChild(read);
   }
+
 }
-
-const harryPotter = new Book('Harry Potter', 'JKR', '300', 'not read yet');
-const theHobbit = new Book ('The Hobbit', 'J.R.R. Tolkien', '295', 'not read');
-
-console.log(harryPotter.info());
-console.log(theHobbit.info());
-
-
-function PrintStuff (myDocuments) {
-  this.documents = myDocuments;
-}
-  
-  // We add the print () method to PrintStuff prototype property so that other instances (objects) can inherit it:
-  PrintStuff.prototype.print = function () {
-  console.log(this.documents);
-  }
-  
-  // Create a new object with the PrintStuff () constructor, thus allowing this new object to inherit PrintStuff's properties and methods.
-  var newObj = new PrintStuff ("I am a new Object and I can print.");
-  
-  // newObj inherited all the properties and methods, including the print method, from the PrintStuff function. Now newObj can call print directly, even though we never created a print () method on it.
-  newObj.print (); //I am a new Object and I can print.
