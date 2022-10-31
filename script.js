@@ -1,5 +1,4 @@
 let myLibrary = [];
-let libIndex = 0;
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -10,8 +9,9 @@ function Book(title, author, pages, read) {
 
 const newBookBtn = document.getElementById('new-book-btn');
 
-newBookBtn.addEventListener('click', () => {addBookToLibrary();displayLibrary()});
-
+newBookBtn.addEventListener('click', () => {addBookToLibrary();
+                                            clearDisplay();
+                                            displayLibrary()});
 function addBookToLibrary() {
   const formBookTitle = document.getElementById('Book title');
   const formAuthor = document.getElementById('Author');
@@ -21,35 +21,40 @@ function addBookToLibrary() {
   const bookToAdd = new Book(formBookTitle.value, formAuthor.value, formPages.value, formRead.value);
   myLibrary.push(bookToAdd);
   console.table(myLibrary);
-
-  libIndex += 1;
-  return myLibrary;
 }
 
 function displayLibrary() {
   const gridContainer = document.getElementById('grid-cont-id');
 
   for (const books of myLibrary) {
+    const parentDiv = document.createElement('div');
+    parentDiv.className = 'line';
+    gridContainer.appendChild(parentDiv);
+
     const title = document.createElement('span');
     title.textContent = books.title;
-    gridContainer.appendChild(title);
+    parentDiv.appendChild(title);
 
     const author = document.createElement('span');
     author.textContent = books.author;
-    gridContainer.appendChild(author);
+    parentDiv.appendChild(author);
 
     const pages = document.createElement('span');
     pages.textContent = books.pages;
-    gridContainer.appendChild(pages);
+    parentDiv.appendChild(pages);
 
     const read = document.createElement('span');
     read.textContent = books.read;
-    gridContainer.appendChild(read);
+    parentDiv.appendChild(read);
   }
-
 }
 
 function clearLibrary () {
+  myLibrary = [];
+  clearDisplay();
+}
+
+function clearDisplay () {
   const headerLine = document.getElementById('grid-cont-id');
   const linesToRemove = document.getElementsByClassName('line');
   if (linesToRemove.length > 0) {
