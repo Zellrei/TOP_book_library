@@ -4,7 +4,9 @@ function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.read = read;
+  if (read == true) {
+    this.read = 'Yes';
+  } else this.read = 'No';
 }
 
 const newBookBtn = document.getElementById('new-book-btn');
@@ -17,8 +19,8 @@ function addBookToLibrary() {
   const formAuthor = document.getElementById('Author');
   const formPages = document.getElementById('Pages');
   const formRead = document.getElementById('Read');
-
-  const bookToAdd = new Book(formBookTitle.value, formAuthor.value, formPages.value, formRead.value);
+  console.log(formRead.checked);
+  const bookToAdd = new Book(formBookTitle.value, formAuthor.value, formPages.value, formRead.checked);
   myLibrary.push(bookToAdd);
   console.table(myLibrary);
 }
@@ -34,24 +36,16 @@ function displayLibrary() {
     const title = document.createElement('span');
     title.textContent = books.title;
     parentDiv.appendChild(title);
-
     const author = document.createElement('span');
     author.textContent = books.author;
     parentDiv.appendChild(author);
-
     const pages = document.createElement('span');
     pages.textContent = books.pages;
     parentDiv.appendChild(pages);
-
     const read = document.createElement('span');
     read.textContent = books.read;
     parentDiv.appendChild(read);
   }
-}
-
-function clearLibrary () {
-  myLibrary = [];
-  clearDisplay();
 }
 
 function clearDisplay () {
@@ -60,10 +54,11 @@ function clearDisplay () {
   if (linesToRemove.length > 0) {
     for(let i = linesToRemove.length; i > 0; i--) {
       headerLine.removeChild(linesToRemove[0]);
-      console.log('deleted 1 line');
     }
   }
-  else {
-    console.log('no lines to delete');
-  }
+}
+
+function clearLibrary () {
+  myLibrary = [];
+  clearDisplay();
 }
