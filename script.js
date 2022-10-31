@@ -10,7 +10,7 @@ function Book(title, author, pages, read) {
 
 const newBookBtn = document.getElementById('new-book-btn');
 
-newBookBtn.addEventListener('click', () => addBookToLibrary());
+newBookBtn.addEventListener('click', () => {addBookToLibrary();displayLibrary()});
 
 function addBookToLibrary() {
   const formBookTitle = document.getElementById('Book title');
@@ -47,4 +47,18 @@ function displayLibrary() {
     gridContainer.appendChild(read);
   }
 
+}
+
+function clearLibrary () {
+  const headerLine = document.getElementById('grid-cont-id');
+  const linesToRemove = document.getElementsByClassName('line');
+  if (linesToRemove.length > 0) {
+    for(let i = linesToRemove.length; i > 0; i--) {
+      headerLine.removeChild(linesToRemove[0]);
+      console.log('deleted 1 line');
+    }
+  }
+  else {
+    console.log('no lines to delete');
+  }
 }
