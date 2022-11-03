@@ -13,7 +13,7 @@ const newBookBtn = document.getElementById('new-book-btn');
 
 newBookBtn.addEventListener('click', () => {addBookToLibrary();
                                             clearDisplay();
-                                            displayLibrary()});
+                                            displayLibrary();});
 function addBookToLibrary() {
   const formBookTitle = document.getElementById('Book title');
   const formAuthor = document.getElementById('Author');
@@ -45,6 +45,17 @@ function displayLibrary() {
     const read = document.createElement('span');
     read.textContent = books.read;
     parentDiv.appendChild(read);
+  }
+
+  let lineNodelist = document.getElementsByClassName('line');
+  for (let i = 0; i < lineNodelist.length; i++) {
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = "Delete";
+    lineNodelist[i].appendChild(deleteBtn);
+    deleteBtn.addEventListener('click', () => {myLibrary.splice(i, 1);
+                                                bookIndex = 0;
+                                                clearDisplay();                                          
+                                                displayLibrary();});
   }
 }
 
