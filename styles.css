@@ -73,3 +73,19 @@ library-wrapper {
   justify-content: center;
   gap: 3px;
 }
+
+.bookIsRead {
+  background-color: greenyellow;
+  width: 50px;
+  text-align: center;
+}
+
+.bookIsNotRead {
+  background-color: lightcoral;
+  width: 50px;
+  text-align: center;
+}
+
+.bookIsRead:hover, .bookIsNotRead:hover {
+  cursor: pointer;
+}

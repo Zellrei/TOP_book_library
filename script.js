@@ -44,6 +44,18 @@ function displayLibrary() {
     parentDiv.appendChild(pages);
     const read = document.createElement('span');
     read.textContent = books.read;
+    if (read.textContent == 'Yes') {
+      read.classList.add('bookIsRead');
+    } else {
+      read.classList.add('bookIsNotRead');
+    }
+    read.addEventListener('click', () => {if (read.textContent == 'Yes') {
+                                            read.classList.replace('bookIsRead', 'bookIsNotRead');
+                                            read.textContent = "No";
+                                          } else {
+                                            read.classList.replace('bookIsNotRead', 'bookIsRead');
+                                            read.textContent = "Yes";
+                                          }})
     parentDiv.appendChild(read);
   }
 
