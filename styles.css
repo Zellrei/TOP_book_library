@@ -33,15 +33,36 @@ library-wrapper {
   justify-content: center;
 }
 
+.flex-title {
+  display: flex;
+  justify-content: center;
+
+  font-size: 26px;
+  background-color: aliceblue;
+}
+
 .flex-top-ctnr {
   display: flex;
   justify-content: center;
+  background-color: aliceblue;
+  padding: 10px;
 }
 
-.flex-main-ctnr {
+fieldset {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: white;
+}
+
+#Pages {
+  width: 30px;
+}
+
+#Read {
+  margin: 0;
+  padding: 0;
+  width: 25px;
 }
 
 .grid-ctnr {
@@ -62,6 +83,11 @@ library-wrapper {
   justify-content: center;
   justify-items: center;
   gap: 3px;
+  background-color: aliceblue;
+  border-bottom: 2px solid black;
+  padding: 10px;
+  margin-bottom: 5px;
+  width: 100%;
 }
 
 .line {
@@ -76,16 +102,16 @@ library-wrapper {
 
 .bookIsRead {
   background-color: greenyellow;
-  width: 50px;
+  width: 40px;
   text-align: center;
 }
 
 .bookIsNotRead {
   background-color: lightcoral;
-  width: 50px;
+  width: 40px;
   text-align: center;
 }
 
-.bookIsRead:hover, .bookIsNotRead:hover {
+.bookIsRead:hover, .bookIsNotRead:hover, .line>button {
   cursor: pointer;
 }

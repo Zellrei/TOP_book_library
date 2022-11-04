@@ -28,22 +28,22 @@ function addBookToLibrary() {
 function displayLibrary() {
   const gridContainer = document.getElementById('grid-cont-id');
 
-  for (const books of myLibrary) {
+  for (let i = 0; i < myLibrary.length; i++) {
     const parentDiv = document.createElement('div');
     parentDiv.className = 'line';
     gridContainer.appendChild(parentDiv);
 
     const title = document.createElement('span');
-    title.textContent = books.title;
+    title.textContent = myLibrary[i].title;
     parentDiv.appendChild(title);
     const author = document.createElement('span');
-    author.textContent = books.author;
+    author.textContent = myLibrary[i].author;
     parentDiv.appendChild(author);
     const pages = document.createElement('span');
-    pages.textContent = books.pages;
+    pages.textContent = myLibrary[i].pages;
     parentDiv.appendChild(pages);
     const read = document.createElement('span');
-    read.textContent = books.read;
+    read.textContent = myLibrary[i].read;
     if (read.textContent == 'Yes') {
       read.classList.add('bookIsRead');
     } else {
@@ -52,9 +52,11 @@ function displayLibrary() {
     read.addEventListener('click', () => {if (read.textContent == 'Yes') {
                                             read.classList.replace('bookIsRead', 'bookIsNotRead');
                                             read.textContent = "No";
+                                            myLibrary[i].read = "No";
                                           } else {
                                             read.classList.replace('bookIsNotRead', 'bookIsRead');
                                             read.textContent = "Yes";
+                                            myLibrary[i].read = "Yes";
                                           }})
     parentDiv.appendChild(read);
   }
@@ -62,7 +64,7 @@ function displayLibrary() {
   let lineNodelist = document.getElementsByClassName('line');
   for (let i = 0; i < lineNodelist.length; i++) {
     const deleteBtn = document.createElement('button');
-    deleteBtn.textContent = "Delete";
+    deleteBtn.textContent = "🗑️Delete";
     lineNodelist[i].appendChild(deleteBtn);
     deleteBtn.addEventListener('click', () => {myLibrary.splice(i, 1);
                                                 bookIndex = 0;
