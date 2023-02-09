@@ -20,8 +20,7 @@ function addBookToLibrary() {
   const formPages = document.getElementById('Pages');
   const formRead = document.getElementById('Read');
   console.log(formRead.checked);
-  const bookToAdd = new Book(formBookTitle.value, formAuthor.value, formPages.value, formRead.checked);
-  myLibrary.push(bookToAdd);
+  myLibrary.push(new Book(formBookTitle.value, formAuthor.value, formPages.value, formRead.checked));
   console.table(myLibrary);
 }
 
