@@ -1,12 +1,23 @@
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
+/* function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   if (read == true) {
     this.read = 'Yes';
   } else this.read = 'No';
+} */
+
+class Book {
+  constructor (title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    if (read == true) {
+      this.read = 'Yes';
+    } else this.read = 'No';
+  }
 }
 
 const newBookBtn = document.getElementById('new-book-btn');
